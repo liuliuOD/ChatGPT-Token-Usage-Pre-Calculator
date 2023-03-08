@@ -9,6 +9,7 @@ packages = [{include = "chatgpt_token_calculator"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 tiktoken = "^0.3.0"
+simple-term-menu = "^1.6.1"
 
 
 [build-system]
