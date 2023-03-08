@@ -10,6 +10,9 @@ $ python3 main.py
 ```
 
 ---
+### Output:
+![demo_result](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/demo_result.png)
+---
 ### Actual:
 - set up environment<br>
 ![set up environment](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/setup-environment.gif)
