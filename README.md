@@ -4,5 +4,7 @@
 ---
 ### Run in terminal:
 ```bash
+$ poetry install
+$ poetry shell
 $ python3 main.py
 ```
