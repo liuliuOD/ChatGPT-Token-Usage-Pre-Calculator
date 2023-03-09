@@ -1,3 +1,4 @@
+import os
 import pandas
 import tiktoken
 from simple_term_menu import TerminalMenu
@@ -23,6 +24,9 @@ def completion_for_model(model, prompt):
 
 def calculate_from_csv():
   path = input('Input your CSV file path:') or 'demo.csv'
+  if not (os.path.exists(path) and os.path.isfile(path)):
+    raise Exception('Filepath not exists.')
+
   df = pandas.read_csv(path)
   return df.iterrows()
 
