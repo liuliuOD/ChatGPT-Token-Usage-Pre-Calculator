@@ -1,10 +1,14 @@
-# ChatGPT Token Calculator
+# ChatGPT CSV Prompt Token Calculator
 
-## This is a tool that pre-calculates the amount of tokens you will consume before using ChatGPT.
+This tool is designed to quickly and accurately calculate the token amounts in prompts using CSV structure files. By analyzing the CSV files, this tool can provide a precise token count, saving you time and improving accuracy.
 
----
+## Installation
 
-### Support models and encoding methods:
+To use this tool, you will need to install the following dependencies:
+
+- Python 3
+
+## Support models and encoding methods:
 
 - models
 
@@ -20,39 +24,34 @@
   > - r50k_base
   > - gpt2
 
----
+## Usage:
 
-### Run in terminal:
+> Just in 5 steps.
+
+1. Run in virtual environment.
 
 ```bash
 $ poetry install
 $ poetry shell
+```
+
+2. Execute tool of this calculator.
+
+```bash
 $ python3 main.py
 ```
 
----
-
-### How to use:
-
-> Just 3 steps.
-
-1. Choose which type want to use.
+3. Choose which type want to use.
    <br>
    ![type](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/type.png)
-2. Depending on the previous selection, choose which model or encoding method you want to use.
+4. Depending on the previous selection, choose which model or encoding method you want to use.
    <br>
    ![model](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/model.png)
-3. Type the CSV file path you want to calculate then press 'ENTER'. The data format can refer to [the following link](https://docs.google.com/spreadsheets/d/13JRhLYTo0JahoCw-U2Q46GoFuZT9Fnjq4lYiKvKzKE8/edit?usp=sharing).
+5. Type the CSV file path you want to calculate then press 'ENTER'. The data format can refer to [the following link](https://docs.google.com/spreadsheets/d/13JRhLYTo0JahoCw-U2Q46GoFuZT9Fnjq4lYiKvKzKE8/edit?usp=sharing).
    <br>
    ![filepath](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/filepath.png)
 
----
-
-### Output:
-
-## ![demo result](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/demo_result.png)
-
-### Actual:
+## Actual:
 
 - set up environment
   <br>
@@ -60,3 +59,10 @@ $ python3 main.py
 - demo
   <br>
   ![demo](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/demo.gif)
+- demo result csv
+  <br>
+  ![demo result](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/demo_result.png)
+
+## Contributing
+
+If you encounter any issues or have suggestions for how to improve this tool, please submit an issue or pull request. We welcome contributions from the community and appreciate your feedback.
