@@ -41,7 +41,26 @@ if __name__ == '__main__':
 
   if type_index == 0:
     print('Which model you want to use?')
-    model_types = ['davinci', 'text-davinci-002', 'text-davinci-003', 'text-embedding-ada-002']
+    model_types = [
+      'gpt-3.5-turbo-0301',
+      'gpt-3.5-turbo',
+      'text-davinci-003',
+      'text-davinci-002',
+      'text-davinci-001',
+      'davinci-instruct-beta',
+      'davinci',
+      'text-curie-001',
+      'curie-instruct-beta',
+      'curie',
+      'text-babbage-001',
+      'babbage',
+      'text-embedding-ada-002',
+      'text-ada-001',
+      'ada',
+      'code-davinci-002',
+      'code-cushman-001'
+    ]
+
     type_index = TerminalMenu(model_types).show()
 
     print(model_types[type_index])
