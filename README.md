@@ -39,6 +39,14 @@ To use this tool, you will need to install the following dependencies:
 
 ## Usage:
 
+### Docker:
+> Just in 1 step.
+1. Run in docker. *Don't forget to mount your csv file folder into container.*
+```bash
+$ docker run --rm -itv ${PWD}:/app dockliu/chatgpt-token-calculator:latest
+```
+
+### Download project:
 > Just in 5 steps.
 
 1. Run in virtual environment.
