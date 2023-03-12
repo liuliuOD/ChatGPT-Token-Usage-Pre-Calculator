@@ -4,7 +4,7 @@ version = "0.0.1"
 description = "You can use this project to know how many tokens the prompts used."
 authors = ["liuliu <liuliugit@gmail.com>"]
 readme = "README.md"
-packages = [{include = "chatgpt_token_calculator"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.10"

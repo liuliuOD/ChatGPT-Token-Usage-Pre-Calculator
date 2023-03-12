@@ -42,14 +42,12 @@ To use this tool, you will need to install the following dependencies:
 > Just in 5 steps.
 
 1. Run in virtual environment.
-
 ```bash
 $ poetry install
 $ poetry shell
 ```
 
 2. Execute tool of this calculator.
-
 ```bash
 $ python3 main.py
 ```
@@ -57,9 +55,11 @@ $ python3 main.py
 3. Choose which type want to use.
    <br>
    ![type](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/type.png)
+
 4. Depending on the previous selection, choose which model or encoding method you want to use.
    <br>
    ![model](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/model.png)
+
 5. Type the CSV file path you want to calculate then press 'ENTER'. The data format can refer to [the following link](https://docs.google.com/spreadsheets/d/13JRhLYTo0JahoCw-U2Q46GoFuZT9Fnjq4lYiKvKzKE8/edit?usp=sharing).
    <br>
    ![filepath](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/filepath.png)
