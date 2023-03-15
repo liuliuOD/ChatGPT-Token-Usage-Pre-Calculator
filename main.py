@@ -32,32 +32,42 @@ def select_from_terminal(types):
 
   return selected_type
 
-def rows_from_csv():
+def csv_to_dataframe():
   path = input('Input your CSV file path:') or 'demo.csv'
   if not (os.path.exists(path) and os.path.isfile(path)):
     raise Exception('Filepath not exists.')
 
-  df = pandas.read_csv(path)
-  return df.iterrows()
+  return pandas.read_csv(path)
 
-def process_token_amount_to(rows, type, is_model = False):
-  result = {'Prompt': [], 'Amount Of Tokens': []}
-  for _, row in rows:
-    prompt = str(row['Prompt'])
+def dataframe_to_token_amounts(dataframe, type, is_model = False):
+  columns = dataframe.columns.tolist()
+  result = {}
+  for col in columns:
+    if not result.get(col):
+      result[col] = []
 
-    if len(prompt) == 0:
-      continue
+  for _, row in dataframe.iterrows():
+    for col in columns:
+      value = str(row[col])
 
-    result['Prompt'].append(prompt)
+      if len(value) == 0:
+        continue
 
-    if is_model:
-      result['Amount Of Tokens'].append(completion_for_model(type, prompt))
-    else:
-      result['Amount Of Tokens'].append(completion_for_encoding(type, prompt))
+      result[col].append(value)
+
+      amount_of_value = '[{}] token amount'.format(col)
+
+      if not result.get(amount_of_value):
+        result[amount_of_value] = []
+
+      if is_model:
+        result[amount_of_value].append(completion_for_model(type, value))
+      else:
+        result[amount_of_value].append(completion_for_encoding(type, value))
 
   return result
 
-def write_to_csv(result):
+def dictionary_to_csv(result):
   pandas.DataFrame(data=result).to_csv('demo_result.csv')
 
 if __name__ == '__main__':
@@ -70,13 +80,13 @@ if __name__ == '__main__':
     MODEL_TYPES = CONFIG['MENU']['MODEL_TYPES']
     type = select_from_terminal(MODEL_TYPES)
 
-    result = process_token_amount_to(rows_from_csv(), type=type, is_model=True)
+    result = dataframe_to_token_amounts(csv_to_dataframe(), type=type, is_model=True)
     
   elif type == TYPES[1]:
     print('Which encoding method you want to use?')
     ENCODING_TYPES = CONFIG['MENU']['ENCODING_TYPES']
     type = select_from_terminal(ENCODING_TYPES)
 
-    result = process_token_amount_to(rows_from_csv(), type=type, is_model=False)
+    result = dataframe_to_token_amounts(csv_to_dataframe(), type=type, is_model=False)
 
-  write_to_csv(result)
+  dictionary_to_csv(result)
