@@ -3,6 +3,8 @@ import pandas
 import tiktoken
 from simple_term_menu import TerminalMenu
 
+from SettingLoader import CONFIG
+
 """
 Document: https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
 """
@@ -21,6 +23,14 @@ def completion_for_model(model, prompt):
   encoding = tiktoken.encoding_for_model(model)
 
   return encode(encoding, prompt)
+
+def select_from_terminal(types):
+  index = TerminalMenu(types).show()
+
+  selected_type = types[index]
+  print(selected_type)
+
+  return selected_type
 
 def rows_from_csv():
   path = input('Input your CSV file path:') or 'demo.csv'
@@ -51,49 +61,22 @@ def write_to_csv(result):
   pandas.DataFrame(data=result).to_csv('demo_result.csv')
 
 if __name__ == '__main__':
-  types = ['1. model', '2. encoding']
+  TYPES = CONFIG['MENU']['CALCULATOR_TYPES']
   print('Which type of tokens calculator you want to use?')
-  type_index = TerminalMenu(types).show()
+  type = select_from_terminal(TYPES)
 
-  print(types[type_index])
-
-  prompt = 'This is an apple. That is a banana.'
-
-  if type_index == 0:
+  if type == TYPES[0]:
     print('Which model you want to use?')
-    MODEL_TYPES = [
-      'gpt-3.5-turbo-0301',
-      'gpt-3.5-turbo',
-      'text-davinci-003',
-      'text-davinci-002',
-      'text-davinci-001',
-      'davinci-instruct-beta',
-      'davinci',
-      'text-curie-001',
-      'curie-instruct-beta',
-      'curie',
-      'text-babbage-001',
-      'babbage',
-      'text-embedding-ada-002',
-      'text-ada-001',
-      'ada',
-      'code-davinci-002',
-      'code-cushman-001'
-    ]
+    MODEL_TYPES = CONFIG['MENU']['MODEL_TYPES']
+    type = select_from_terminal(MODEL_TYPES)
 
-    type_index = TerminalMenu(MODEL_TYPES).show()
-
-    print(MODEL_TYPES[type_index])
-
-    result = process_token_amount_to(rows_from_csv(), type=MODEL_TYPES[type_index], is_model=True)
+    result = process_token_amount_to(rows_from_csv(), type=type, is_model=True)
     
-  elif type_index == 1:
+  elif type == TYPES[1]:
     print('Which encoding method you want to use?')
-    ENCODING_TYPES = ['cl100k_base', 'p50k_base', 'r50k_base', 'gpt2']
-    type_index = TerminalMenu(ENCODING_TYPES).show()
+    ENCODING_TYPES = CONFIG['MENU']['ENCODING_TYPES']
+    type = select_from_terminal(ENCODING_TYPES)
 
-    print(ENCODING_TYPES[type_index])
-
-    result = process_token_amount_to(rows_from_csv(), type=ENCODING_TYPES[type_index], is_model=False)
+    result = process_token_amount_to(rows_from_csv(), type=type, is_model=False)
 
   write_to_csv(result)
