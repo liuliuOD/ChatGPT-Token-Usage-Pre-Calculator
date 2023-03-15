@@ -41,22 +41,28 @@ To use this tool, you will need to install the following dependencies:
 ## Usage:
 
 ### Docker:
+
 > Just in 1 step.
-1. Run in [docker](https://hub.docker.com/r/dockliu/chatgpt-token-calculator). *Don't forget to mount your csv file folder into container.*
+
+1. Run in [docker](https://hub.docker.com/r/dockliu/chatgpt-token-calculator). _Don't forget to mount your csv file folder into container._
+
 ```bash
-$ docker run --rm -itv ${PWD}:/app dockliu/chatgpt-token-calculator:latest
+$ docker run --rm -itv ${PWD}:/app_temp dockliu/chatgpt-token-calculator:latest
 ```
 
 ### Download project:
+
 > Just in 5 steps.
 
 1. Run in virtual environment.
+
 ```bash
 $ poetry install
 $ poetry shell
 ```
 
 2. Execute tool of this calculator.
+
 ```bash
 $ python3 main.py
 ```
@@ -73,7 +79,7 @@ $ python3 main.py
    <br>
    ![filepath](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/filepath.png)
 
-## Actual:
+## Actual execution:
 
 - set up environment
   <br>
@@ -81,7 +87,7 @@ $ python3 main.py
 - demo
   <br>
   ![demo](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/demo.gif)
-- demo result csv
+- demo result csv. The data format can refer to [the following link](https://docs.google.com/spreadsheets/d/1OPRv5q2yWLO2i4EsHTaK3SyxQjMqq8QguD9MERBv_Rk/edit?usp=sharing).
   <br>
   ![demo result](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/demo_result.png)
 
