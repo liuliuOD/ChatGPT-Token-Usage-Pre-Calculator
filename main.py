@@ -37,7 +37,7 @@ def csv_to_dataframe():
   if not (os.path.exists(path) and os.path.isfile(path)):
     raise Exception('Filepath not exists.')
 
-  return pandas.read_csv(path)
+  return [pandas.read_csv(path), path]
 
 def dataframe_to_token_amounts(dataframe, type, is_model = False):
   columns = dataframe.columns.tolist()
@@ -67,26 +67,29 @@ def dataframe_to_token_amounts(dataframe, type, is_model = False):
 
   return result
 
-def dictionary_to_csv(result):
-  pandas.DataFrame(data=result).to_csv('demo_result.csv')
+def dictionary_to_csv(result, input_filepath):
+  pandas.DataFrame(data=result).to_csv('{}/demo_result.csv'.format(os.path.dirname(input_filepath)))
 
 if __name__ == '__main__':
   TYPES = CONFIG['MENU']['CALCULATOR_TYPES']
   print('Which type of tokens calculator you want to use?')
   type = select_from_terminal(TYPES)
 
+  input_filepath = None
   if type == TYPES[0]:
     print('Which model you want to use?')
     MODEL_TYPES = CONFIG['MENU']['MODEL_TYPES']
     type = select_from_terminal(MODEL_TYPES)
 
-    result = dataframe_to_token_amounts(csv_to_dataframe(), type=type, is_model=True)
+    [dataframe, input_filepath] = csv_to_dataframe()
+    result = dataframe_to_token_amounts(dataframe, type=type, is_model=True)
     
   elif type == TYPES[1]:
     print('Which encoding method you want to use?')
     ENCODING_TYPES = CONFIG['MENU']['ENCODING_TYPES']
     type = select_from_terminal(ENCODING_TYPES)
 
-    result = dataframe_to_token_amounts(csv_to_dataframe(), type=type, is_model=False)
+    [dataframe, input_filepath] = csv_to_dataframe()
+    result = dataframe_to_token_amounts(dataframe, type=type, is_model=False)
 
-  dictionary_to_csv(result)
+  dictionary_to_csv(result, input_filepath)

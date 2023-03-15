@@ -2,7 +2,8 @@ FROM python:3
 
 WORKDIR /app
 
-COPY main.py pyproject.toml poetry.lock .
+COPY *.py pyproject.toml poetry.lock .
+COPY config config
 
 RUN pip install poetry
 
