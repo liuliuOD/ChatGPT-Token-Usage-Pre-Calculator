@@ -7,9 +7,9 @@ This tool is designed to quickly and accurately calculate the token amounts in p
 To use this tool, you will need to install the following dependencies:
 
 - Python 3
-- Docker (only if you run by [docker image version](https://hub.docker.com/r/dockliu/chatgpt-token-calculator))
+- Docker (only if you run by [Docker](https://www.docker.com) version of [this tool](https://hub.docker.com/r/dockliu/chatgpt-token-calculator))
 
-## Support models and encoding methods:
+## Support models and encoding methods
 
 - models
 
@@ -38,19 +38,17 @@ To use this tool, you will need to install the following dependencies:
   > - r50k_base
   > - gpt2
 
-## Usage:
-
-### Docker:
+## Docker usage
 
 > Just in 1 step.
 
-1. Run in [docker](https://hub.docker.com/r/dockliu/chatgpt-token-calculator). _Don't forget to mount your csv file folder into container._
+1. Run the [Docker](https://www.docker.com) image on [this repository of Docker hub](https://hub.docker.com/r/dockliu/chatgpt-token-calculator). _Don't forget to mount your csv file folder into container._
 
 ```bash
 $ docker run --rm -itv ${PWD}:/app_temp dockliu/chatgpt-token-calculator:latest
 ```
 
-### Download project:
+## Command-line usage
 
 > Just in 5 steps.
 
@@ -79,7 +77,7 @@ $ python3 main.py
    <br>
    ![filepath](https://github.com/liuliuOD/chatgpt-token-calculator/blob/master/readme/filepath.png)
 
-## Actual execution:
+## Actual execution
 
 - set up environment
   <br>
