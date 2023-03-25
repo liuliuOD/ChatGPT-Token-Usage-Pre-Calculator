@@ -11,32 +11,25 @@ To use this tool, you will need to install the following dependencies:
 
 ## Support models and encoding methods
 
-- models
-
-  > - gpt-3.5-turbo-0301
-  > - gpt-3.5-turbo
-  > - text-davinci-003
-  > - text-davinci-002
-  > - text-davinci-001
-  > - davinci-instruct-beta
-  > - davinci
-  > - text-curie-001
-  > - curie-instruct-beta
-  > - curie
-  > - text-babbage-001
-  > - babbage
-  > - text-embedding-ada-002
-  > - text-ada-001
-  > - ada
-  > - code-davinci-002
-  > - code-cushman-001
-
-- encoding methods
-
-  > - cl100k_base
-  > - p50k_base
-  > - r50k_base
-  > - gpt2
+| Models | Encoding Methods |
+| :- | :- |
+| gpt-3.5-turbo-0301 | cl100k_base
+| gpt-3.5-turbo | p50k_base
+| text-davinci-003 | r50k_base
+| text-davinci-002 | gpt2
+| text-davinci-001 |
+| davinci-instruct-beta |
+| davinci |
+| text-curie-001 |
+| curie-instruct-beta |
+| curie |
+| text-babbage-001 |
+| babbage |
+| text-embedding-ada-002 |
+| text-ada-001 |
+| ada |
+| code-davinci-002 |
+| code-cushman-001 |
 
 ## Docker usage
 
